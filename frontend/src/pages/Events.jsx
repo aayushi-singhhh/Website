@@ -147,6 +147,30 @@ const TimelineItem = ({ event, index }) => {
 const Timeline = () => {
     const events = [
       {
+        "date": "25th SEP 2025",
+        "title": "MEXC Foundation X Build3DAO - Intro Day",
+        "link": "https://www.instagram.com/p/DQR4ZBiEiZT",
+        "imageUrl": "https://res.cloudinary.com/duplabys5/image/upload/v1762857476/mexc_clprub.jpg",
+        "subtitle": "Building the Future Together - A Web3 Collaboration",
+        "description": "AssetMerkle hosted an immersive introduction day with MEXC Foundation and Build3DAO at IGDTUW, bringing together industry leaders and students to explore blockchain innovation, Web3 technologies, and building decentralized ecosystems."
+      },
+      {
+        "date": "26th JUNE 2025",
+        "title": "Chainlink Virtual Workshop",
+        "link": "https://www.instagram.com/p/DQR3kQJkjCA/",
+        "imageUrl": "https://res.cloudinary.com/duplabys5/image/upload/v1762857467/assetmerkle_X_ChainLink_iwxxya.png",
+        "subtitle": "Mastering Decentralized Oracles & Smart Contracts",
+        "description": "AssetMerkle organized an engaging virtual workshop on Chainlink's decentralized oracle network, featuring hands-on demonstrations on connecting real-world data to smart contracts and building hybrid blockchain applications."
+      },
+      {
+        "date": "25th MAY 2025",
+        "title": "KRNL Decoded Delhi Meetup",
+        "link": "https://www.instagram.com/p/DQR2KGBkmFW/",
+        "imageUrl": "https://res.cloudinary.com/duplabys5/image/upload/v1762857469/krnl_a8wyr8.jpg",
+        "subtitle": "Exploring Kernel Network & Web3 Infrastructure",
+        "description": "AssetMerkle brought together Delhi's Web3 community for the KRNL Decoded Meetup at IGDTUW, featuring expert speakers, interactive sessions on Kernel Network's infrastructure, and networking with passionate blockchain builders."
+      },
+      {
         "date": "4-6 APRIL 2025",
         "title": "AM Hacks",
         "link": "https://www.instagram.com/p/DHp9mHdtYz7/",

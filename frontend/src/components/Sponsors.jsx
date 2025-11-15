@@ -58,14 +58,16 @@ const Sponsors = () => {
           {duplicatedSponsors.map((sponsor, index) => (
             <li key={index} className="flex-shrink-0">
               <div 
-                className="w-48 h-24 flex items-center justify-center p-4 bg-white/5 rounded-2xl border border-white/10
+                className="w-48 h-32 flex flex-col items-center justify-center p-8 bg-white/5 rounded-2xl border border-white/10
                            transition-all duration-300 group-hover:bg-white/10"
               >
                 <img
                   src={sponsor.image}
                   alt={`${sponsor.name} logo`}
-                  className="max-w-full max-h-full object-contain mix-blend-multiply dark:mix-blend-screen"
+                  className="max-w-full max-h-full object-contain mix-blend-multiply dark:mix-blend-screen m-2"
                 />
+                <div ><p className="text-[oklch(87.2%_0.01_258.338)]">{sponsor.name}</p></div>
+                
               </div>
             </li>
           ))}

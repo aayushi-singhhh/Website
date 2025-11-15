@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 // Define navigation items in one place for consistency
 const navItems = [
@@ -10,6 +12,8 @@ const navItems = [
   { path: "/team", label: "Team" },
   { path: "/faq", label: "FAQ" },
   { path: "/docs", label: "Docs" },
+  { path: "/amhacks", label: "AM Hacks" },
+  { path: "/profile", label: "Profile" },
 ];
 
 const Navbar = () => {
@@ -20,7 +24,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -39,32 +43,52 @@ const Navbar = () => {
   };
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        isScrolled ? 'bg-black/50 backdrop-blur-lg' : 'bg-transparent'
-      }`}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled ? 'bg-black/50 backdrop-blur-lg' : 'bg-transparent'
+        }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 flex items-center gap-2">
-            <img src="/logo.png" alt="Assetmerkle Logo" className='h-12 w-12'/>
+            <img src="/logo.png" alt="Assetmerkle Logo" className='h-12 w-12' />
             <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-amber-500 text-2xl">Assetmerkle</span>
           </Link>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.path}
-                className="text-white hover:text-yellow-400 transition-colors duration-200 uppercase text-sm font-semibold tracking-wider px-4 py-2"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              if (item.label === "AM Hacks") {
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.path}
+                    className="bg-yellow-400 text-black uppercase text-sm font-semibold tracking-wider px-4 py-2 rounded-lg 
+                     hover:scale-105 hover:shadow-lg transition-transform duration-200"
+                  >
+                    {item.label}
+                  </Link>
+                );
+              } else if (item.label === "Profile") {
+                return (
+                  <Link key={item.label} to={item.path} className="p-2 hover:text-yellow-400">
+                    <FontAwesomeIcon icon={faUser} className="h-8 w-8 text-white border-2 border-white rounded-full p-1 hover:text-yellow-400" />
+                  </Link>
+                );
+              } else {
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.path}
+                    className="text-white hover:text-yellow-400 transition-colors duration-200 uppercase text-sm font-semibold tracking-wider px-4 py-2"
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+            })}
           </div>
-          
+
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
             <button className="text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -73,11 +97,11 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Mobile Navigation */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
+          <motion.div
             className="lg:hidden absolute top-full left-0 w-full bg-black/90 backdrop-blur-xl border-t border-white/10"
             initial="closed"
             animate="open"
